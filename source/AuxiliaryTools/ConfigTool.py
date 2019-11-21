@@ -20,15 +20,15 @@ def update_config(data_root="/users4/ythou/Projects/TaskOrientedDialogue/data/",
         'path': {
             "DataRoot": data_root,
             "RawData": {
-                'stanford': data_root + "Stanford/",
-                'stanford_labeled': data_root + "StanfordLabeled/",
-                'atis': data_root + "Atis/",
+                'stanford': os.path.join(data_root, "Stanford/"),
+                'stanford_labeled': os.path.join(data_root, "StanfordLabeled/"),
+                'atis': os.path.join(data_root, "Atis/"),
             },
-            "ClusteringResult": data_root + "ClusteringResult/",
-            "GenerationResult": data_root + "GenerationResult/",
-            "OnmtData": data_root + "OnmtData/",
-            "Evaluate": data_root + "Evaluate/",
-            "Embedding": data_root + 'Embedding/'
+            "ClusteringResult": os.path.join(data_root, "ClusteringResult/"),
+            "GenerationResult": os.path.join(data_root, "GenerationResult/"),
+            "OnmtData": os.path.join(data_root, "OnmtData/"),
+            "Evaluate": os.path.join(data_root, "Evaluate/"),
+            "Embedding": os.path.join(data_root, 'Embedding/')
         },
         'onmt': {
             'prepare_data': ['python3', './OpenNMT/preprocess.py', '-train_src', '<DATA_DIR>/train_<DATA_MARK><CLUSTER_METHOD><SPLIT_RATE><PAIR_MOD><NO_INDEX><NO_FILTERING>_src.txt', '-train_tgt', '<DATA_DIR>/train_<DATA_MARK><CLUSTER_METHOD><SPLIT_RATE><PAIR_MOD><NO_INDEX><NO_FILTERING>_tgt.txt', '-valid_src', '<DATA_DIR>/dev_<DATA_MARK><CLUSTER_METHOD>1<PAIR_MOD><NO_INDEX><NO_FILTERING>_src.txt', '-valid_tgt', '<DATA_DIR>/dev_<DATA_MARK><CLUSTER_METHOD>1<PAIR_MOD><NO_INDEX><NO_FILTERING>_tgt.txt', '-save_data', '<RESULT_DIR>/processed_<DATA_MARK><CLUSTER_METHOD><SPLIT_RATE><PAIR_MOD><NO_INDEX><NO_FILTERING>'],
@@ -74,6 +74,7 @@ def update_config(data_root="/users4/ythou/Projects/TaskOrientedDialogue/data/",
 
     new_folder_num += create_dir(config['path'].values())
     print('config updated, make %d new folder to fit config setting' % new_folder_num)
+
 
 if __name__ == "__main__":
     update_config("/users4/ythou/Projects/TaskOrientedDialogue/data/")  # For my linux server setting

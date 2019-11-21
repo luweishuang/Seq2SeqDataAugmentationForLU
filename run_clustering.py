@@ -9,7 +9,7 @@ from set_config import refresh_config_file
 
 # ============ Args Process ==========
 parser = argparse.ArgumentParser()
-parser.add_argument("-d", "--data", type=str, default='stanford_labeled', help="choose target dataset: stanford, stanford_labeled, atis")
+parser.add_argument("-d", "--data", type=str, default='atis', help="choose target dataset: stanford, stanford_labeled, atis")
 parser.add_argument("-cm", "--cluster_mode", type=str, default='all', help="select cluster mode: slot, intent, slot-intent, all, no_clustering")
 parser.add_argument('--config', default='./config.json', help="specific a config file by path")
 args = parser.parse_args()
